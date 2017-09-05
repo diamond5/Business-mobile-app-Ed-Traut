@@ -111,11 +111,9 @@
         
         
     };
-    
-    //    id onesignalInitSettings = @{kOSSettingsKeyInFocusDisplayOption : @(OSNotificationDisplayTypeNotification), kOSSettingsKeyAutoPrompt : @YES};
+  
     id onesignalInitSettings = @{kOSSettingsKeyInFocusDisplayOption : @(OSNotificationDisplayTypeNotification), kOSSettingsKeyAutoPrompt : @YES};
     
-//    OneSignal.inFocusDisplayType = OSNotificationDisplayTypeNotification;
     
     [OneSignal initWithLaunchOptions:launchOptions
                                appId:@"99822411-1fa0-4bf1-aab4-b9aeaa527a61"
@@ -143,31 +141,18 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     MyList* g_list = [MyList getInstance];
-    
-//    [self generateFakedMessageData];
-    
     [SerialObject writeToUserDefaults:MESSAGE_LIST withArray:g_list.m_messageList];
-    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-//    [defaults setInteger:5 forKey:@"AAA"];
-//    [defaults synchronize];
-    
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-//    alertTapped = YES;
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DidEnterForeground" object:self];
-//    alertTapped = NO;
-    
-    
 }
 
 
@@ -183,67 +168,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSLog(@"Received notification: %@", userInfo);    
-    
-
-//    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground) {
-    
-//        if (alertTapped == YES) {
-//            alertTapped = NO;
-//            return;
-//        }
-//        alertTapped = YES;
-//    }
-    
-    
-
-//    NSString* title = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
-//    if (title == nil) {
-//        title = @"Ed traut";
-//    }
-//    
-//    NSString* content = [[[userInfo valueForKey:@"custom"] valueForKey:@"a"] valueForKey:@"inMsg"];
-//    
-//    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-//    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
-//    NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
-//    NSString* received_date = [dateFormatter stringFromDate:[NSDate date]];
-//
-//    MessageData* messageData = [[MessageData alloc] init];
-//    messageData.title = title;
-//    messageData.content = content;
-//    messageData.received_date = received_date;
-//    
-//    MyList* gList = [MyList getInstance];
-//    if(gList.m_messageList == nil){
-//        gList.m_messageList = [[NSMutableArray alloc] init];
-//    }
-//    
-//    [gList.m_messageList addObject:messageData];
-    
+    NSLog(@"Received notification: %@", userInfo);
 }
-
-
-
-
-
-
-//- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-//       willPresentNotification:(UNNotification *)notification
-//         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
-//{
-//    NSLog( @"Handle push from foreground" );
-//    // custom code to handle push while app is in the foreground
-//}
-
-
-//- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-//didReceiveNotificationResponse:(UNNotificationResponse *)response
-//         withCompletionHandler:(void (^)())completionHandler
-//{
-//    NSLog( @"Handle push from background or closed" );
-//    // if you set a member variable in didReceiveRemoteNotification, you will know if this is from closed or background
-//}
 
 @end

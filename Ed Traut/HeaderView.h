@@ -10,6 +10,4 @@
 
 @interface HeaderView : UICollectionReusableView
 
-//@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
-
 @end

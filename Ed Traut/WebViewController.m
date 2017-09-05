@@ -41,32 +41,9 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    // Clear Web Cache
-    
-//    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-//    
-//    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
-//        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
-//    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-//- (IBAction)onBackBtnClick:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil]; // <back
-//}
 
 - (IBAction)onBackBtnClick1:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil]; // <back
     [self.navigationController popViewControllerAnimated:YES];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }

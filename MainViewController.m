@@ -26,10 +26,8 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     // Do any additional setup after loading the view.
-//    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Petrus2"]];
     self.mainCollectionView.backgroundColor = [UIColor clearColor];
     self.mainCollectionView.bounces = NO;
-//    self.collectionView.b
     
     self.msgCount.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap)];
@@ -61,24 +59,6 @@
 -(void)updateMessageCount{
     NSInteger msgCount =  [MyList getInstance].m_messageList.count;
     
-//    int nMsgCount = (int) msgCount;
-    
-//    NSString* nsMsgCount = [NSString stringWithFormat:@"%i", nMsgCount];
-    
-//    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-//    int nMsgCount = (int) delegate.msgCount;
-    
-//    NSString* nsMsgCount = [NSString stringWithFormat:@"%li", (long)delegate.msgCount];
-//    
-//    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"meesage count"
-//                                                        message:nsMsgCount
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"Close"
-//                                              otherButtonTitles:nil, nil];
-//    [alertView show];
-
-    
     if(msgCount == 0) {
         self.msgCount.text = @"";
     }
@@ -91,24 +71,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-//
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-//    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-//    CGFloat width  = screenSize.width;
-//    CGFloat height = width * 0.35;
-//    
-//    return CGSizeMake(width, height);
-//}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 2;
@@ -172,9 +134,7 @@
         }
     }
     else {
-//        cell.backgroundColor = [UIColor blackColor];
         cell.imageViewBtn.contentMode = UIViewContentModeScaleToFill;
-//        cell.imageView.backgroundColor = [UIColor redColor];
         switch (indexPath.row) {
             case 0:
                 [cell.imageViewBtn setImage:[UIImage imageNamed:@"email"]];
@@ -302,19 +262,7 @@
     webVC.titleStr = titleString;
     
     [self.navigationController pushViewController:webVC animated:YES];
-    
-    //[self performSegueWithIdentifier:@"toWebViewSegue" sender:self];
-    
 }
-
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    if([segue.identifier isEqualToString:@"toWebViewSegue"]) {
-//        UINavigationController* navigationVC = [segue destinationViewController];
-//        WebViewController *wVC = (WebViewController *)navigationVC.topViewController;
-//        wVC.urlStr = urlString;
-//        wVC.titleStr = titleString;
-//    }
-//}
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
@@ -369,20 +317,5 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
 }
-
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-//    UICollectionReusableView *reusableview = nil;
-//    
-//    if (kind == UICollectionElementKindSectionHeader) {
-//        HeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-//        UIImage *headerImage = [UIImage imageNamed:@"Petrus1"];
-//        headerView.backgroundImage.image = headerImage;
-//        
-//        reusableview = headerView;
-//    }
-//    
-//    return reusableview;
-//}
 
 @end
